@@ -7,7 +7,7 @@ import Link from "next/link";
 import DisplaytechIcons from "./DisplaytechIcons";
 
 const InterviewCard = ({
-  interviewId,
+  id,
   userId,
   role,
   type,
@@ -47,7 +47,7 @@ const InterviewCard = ({
          <div className="flex flex-row justify-between">
             <DisplaytechIcons techStack={techstack}/>
             <Button className="btn-primary">
-                <Link href={feeedback ? `/interview/${interviewId}/feedback`:`/interview/${interviewId}`}>
+                <Link href={feeedback ? `/interview/${id}/feedback`:`/interview/${id}`}>
                     
                     {feeedback ? 'Check Feedback':'View Interview'}</Link>
             </Button>
