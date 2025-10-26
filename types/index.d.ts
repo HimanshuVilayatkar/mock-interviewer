@@ -48,11 +48,12 @@ interface InterviewCardProps {
 }
 
 interface AgentProps {
-  userName: string;
+  userName: string | undefined;
   userId?: string;
   interviewId?: string;
   feedbackId?: string;
   type: "generate" | "interview";
+   workflowId?: string;
   questions?: string[];
 }
 
