@@ -5,8 +5,9 @@ import { getRandomInterviewCover } from "@/lib/utils";
 import { Button } from "./ui/button";
 import Link from "next/link";
 import DisplaytechIcons from "./DisplaytechIcons";
+import { getFeedbackByInterviewId } from "@/lib/actions/general.action";
 
-const InterviewCard = ({
+const InterviewCard =async({
   id,
   userId,
   role,
@@ -14,7 +15,7 @@ const InterviewCard = ({
   techstack,
   createdAt,
 }: InterviewCardProps) => {
-  const feeedback = null as Feedback | null;
+  const feeedback = userId && id ?await getFeedbackByInterviewId({interviewId:id,userId}):null
   const normalizeType = /mix/gi.test(type) ? "mixed" : type;
   const formattedDate = dayjs(
     feeedback?.createdAt || createdAt || Date.now()
